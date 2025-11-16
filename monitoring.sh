@@ -11,6 +11,6 @@ echo "#LVM use: $(lsblk | grep -q 'lvm' && echo yes || echo no)"
 echo "#Connections TCP : $(ss -t | grep -c ESTAB) ESTABLISHED"
 echo "#User log: "`who | grep -c $USER`
 echo "#Network: IP $(hostname -I)($(ip link | awk '/link\/ether/ {print $2}'))"
-echo "#Sudo : "`journalctl _COMM=sudo | grep -c COMMAND`
+echo "#Sudo : $(journalctl _COMM=sudo | grep -c COMMAND) cmd"
 }| wall
 
